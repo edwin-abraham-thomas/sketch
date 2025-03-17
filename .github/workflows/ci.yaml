@@ -28,6 +28,7 @@ jobs:
           push: true
           tags: ${{ vars.DOCKERHUB_USERNAME }}/sketch:${{ github.run_number }}
   update-k8s-manifest:
+    needs: docker-image-push
     runs-on: ubuntu-latest
     steps:
       - name: Checkout config repository
