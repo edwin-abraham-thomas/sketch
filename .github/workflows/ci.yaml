@@ -6,7 +6,6 @@ on:
 
 jobs:
   update-k8s-manifest:
-    needs: docker-image-push
     runs-on: ubuntu-latest
     steps:
       - name: Checkout config repository
