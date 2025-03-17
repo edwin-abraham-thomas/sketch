@@ -18,7 +18,7 @@ jobs:
       - name: Update deployment manifest
         run: |
           # Use sed to update the image tag in the app.yaml file
-          sed -i 's|image: ${{ vars.DOCKERHUB_USERNAME }}/sketch:.*|image: ${{ vars.DOCKERHUB_USERNAME }}/sketch:${{ github.run_number }}|g' sketch/app.yaml
+          sed -i 's|image: ${{ vars.DOCKERHUB_USERNAME }}/sketch.*|image: ${{ vars.DOCKERHUB_USERNAME }}/sketch:${{ github.run_number }}|g' sketch/app.yaml
           
       - name: Commit and push changes
         run: |
