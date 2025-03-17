@@ -11,8 +11,9 @@ jobs:
       - name: Checkout config repository
         uses: actions/checkout@v4
         with:
-          repository: edwin-abraham-thomas/k8s  # You'll need to set this variable to your config repo name
+          repository: ${{ github.repository_owner }}/k8s  # You'll need to set this variable to your config repo name
           # token: ${{ secrets.CONFIG_REPO_TOKEN }}  # You'll need a PAT with access to the config repo
+          ref: main
           
       - name: Update deployment manifest
         run: |
