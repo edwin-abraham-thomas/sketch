@@ -10,6 +10,35 @@ const filePath = path.join(__dirname, process.env.STORY_FOLDER, 'text.txt');
 
 app.use(bodyParser.json());
 
+app.get('/', (req, res) => {
+  res.send(`
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <title>Welcome</title>
+        <style>
+          body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            line-height: 1.6;
+          }
+          h1 {
+            color: #333;
+          }
+        </style>
+      </head>
+      <body>
+        <h1>Welcome to the Story API</h1>
+        <p>Use the following endpoints:</p>
+        <ul>
+          <li><strong>GET /story</strong> - Retrieve the story</li>
+          <li><strong>POST /story</strong> - Add to the story</li>
+        </ul>
+      </body>
+    </html>
+  `);
+});
+
 app.get('/story', (req, res) => {
   fs.readFile(filePath, (err, data) => {
     if (err) {
